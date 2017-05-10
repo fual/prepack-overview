@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Prepack</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="https://prepack.io/css/prism.css"/>
+	<script src="https://prepack.io/js/prism.js"></script>
+	<style>
+		.slide {
+			padding-top: 30px;
+		}
+		.slide::after {
+			right: 10px;
+			font-size: 25px;
+			line-height: 50px;
+		}
+		.slide pre {
+			font-size: 20px
+		}
+	.example {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.example-code {
+  height: 100%;
+}
+
+.example-input, .example-output {
+  
+  margin: 0 5px;
+  background-color: #fdfaeb;
+
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 800px) {
+  .example {
+    flex-direction: column;
+  }
+
+  .example-code {
+    max-width: inherit;
+  }
+}
+
+.example-input::before, .example-output::before, .code-block::before {
+  background: #FBF4D0;
+  color: #B0A673;
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.example-input {
+
+}
+
+.example-input::before {
+  content: 'Input';
+}
+
+.example-output {
+
+}
+
+.example-output::before {
+  content: 'Output';
+}
+
+.code-block {
+  margin: 5px;
+  background-color: #fdfaeb;
+}
+
+.code-block.language-js::before {
+  content: 'JavaScript';
+}
+
+.code-block.language-sh::before {
+  content: 'Shell';
+}
+
+.options-table {
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.options-table td, .options-table th {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+/* REPL */
+
+.input, .output {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+}
+
+.input {
+  box-sizing: border-box;
+  left: 0;
+  border-right: 1px solid #ddd;
+}
+
+.output {
+  right: 0;
+}
+
+.repl, .error {
+  width: 100%;
+  height: 100%;
+}
+
+.error {
+  padding: 10px;
+  font-family: "Operator Mono", "Fira Code", "Ubuntu Mono", "Droid Sans Mono", "Liberation Mono", "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #c7254e;
+  white-space: pre;
+}
+
+.align-left {
+  text-align: left;
+}
+	</style>
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Prepack</h1>
+		<p>Alexey Khlebaev</p>
+	</header>
+	<section class="slide hero" >
+		<style>
+		.hero {
+		    background: #323330;
+		    color: #FFF;
+		    padding: 50px 0;
+		    font-weight: 200;
+		    text-align: center;
+		    border-bottom: solid 1px #e0e0e3;
+		}
+		.hero .text {
+		    margin: 0;
+		    font-size: 128px;
+		    line-height: 96px;
+		    color: #f5da55;
+		    line-height: 120px;
+		}
+		.hero h2.minitext {
+		    font-size: 28px;
+		    line-height: inherit;
+		    margin: 1em 0;
+		}
+		</style>
+		<h1 style="margin-top: 170px;" class="text">Prepack</h1>
+		<h2 class="minitext">
+            Инструмент, который сделает JavaScript быстрее!
+          </h2>
+	</section>
+	<section class="slide">
+		<img src="pictures/hipster.jpg"  class="cover" />
+	</section>
+	<section class="slide">
+		<img src="pictures/smoothie.jpg" class="cover" />
+	</section>
+	<section class="slide">
+		<img src="pictures/vape.jpg" class="cover" />
+	</section>
+	<section class="slide hero" >
+
+		<h1 style="margin-top: 170px;" class="text">Prepack</h1>
+		<h2 class="minitext">
+            Инструмент, который сделает JavaScript быстрее!
+         </h2>
+	</section>
+	<section class="slide hero" >
+		<h1 class="text" style="font-size: 80px;">О чем пойдет речь:</h1>
+
+		<ul style="text-align: left; margin: 40px auto; width: 800px; font-size: 40px; line-height: 60px">
+			<li>Что такое prepack.</li>
+			<li>Почему это круто.</li>
+			<li>Когда в production?</li>
+			<li>Что такое хайп.</li>
+		</ul>
+	</section>
+	<section class="slide hero" >
+
+		<div style="color: #fff; font-size: 60px;">
+			Prepack оптимизирует исходники js.
+		</div>
+		<div style="font-size: 30px; margin-top: 20px;">
+			Зачем код выполнять в run-time, если это можно сделать заранее?
+		</div>
+		<footer class="footer">
+			Prepack оптимизирует исходники js.
+			Prepack находит участки кода, которые можно оптимизировать и заменяет оптимизирует.
+			Это избавляет от вспомогательных вычеслений в рантайме. 		
+		</footer>
+	</section>
+	<section class="slide" style="background: #323330;">
+		<h1 class="text" style="font-size: 60px; color: #f5da55;">Пример#1</h1>
+		<div class="example">
+            <div class="example-input">
+              <div class="example-code">
+                <pre class=" language-js"><code class=" language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'_'</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    self<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> y <span class="token operator">?</span> y <span class="token punctuation">:</span> x<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+              </div>
+            </div>
+            <div class="example-output">
+              <div class="example-code">
+                <pre class=" language-js"><code class=" language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  _a <span class="token operator">=</span> <span class="token string">"A"</span><span class="token punctuation">;</span>
+  _b <span class="token operator">=</span> <span class="token string">"B"</span><span class="token punctuation">;</span>
+  _4 <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+              </div>
+            </div>
+          </div>
+	</section>
+
+	<section class="slide" style="background: #323330;">
+		<h1 class="text" style="font-size: 60px; color: #f5da55;">Пример#2 Fibonacci</h1>
+<div class="example" style="display: block; margin-top: -20px;">
+            <div class="example-input">
+              <div class="example-code">
+                <pre class=" language-js"><code class=" language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x <span class="token operator">&lt;=</span> <span class="token number">1</span> <span class="token operator">?</span> x <span class="token punctuation">:</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>x <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  global<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+              </div>
+            </div>
+            <div class="example-output">
+              <div class="example-code">
+                <pre class=" language-js"><code class=" language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  x <span class="token operator">=</span> <span class="token number">28657</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+              </div>
+            </div>
+          </div>
+	</section>
+	<section class="slide hero" >
+		<h1 class="text" style="font-size: 80px;">Кишки:</h1>
+
+		<ul style="text-align: left; margin: 40px auto; width: 800px; font-size: 40px; line-height: 60px">
+			<li>Abstract Syntax Tree.</li>
+			<li>Concrete Execution.</li>
+			<li>Symbolic Execution.</li>
+			<li>Abstract Interpretation.</li>
+			<li>Heap Serialization</li>
+		</ul>
+	</section>
+	<section class="slide hero" >
+
+		<h1 style="margin-top: 170px;" class="text">Окружение - Боль!</h1>
+	</section>
+		<section class="slide hero" >
+		<h1 class="text" style="font-size: 80px;">Куда дальше:</h1>
+
+		<ul style="text-align: left; margin: 40px auto; width: 800px; font-size: 40px; line-height: 60px">
+			<li>React Native</li>
+			<li>Прокачка оптимизаций</li>
+			<li>Стабилизация</li>
+		</ul>
+	</section>
+	<section class="slide hero" >
+
+		<h1 style="margin-top: 170px;" class="text">Демо!</h1>
+	</section>
+	<section class="slide hero" >
+
+		<h1 style="margin-top: 170px;" class="text">Prepack vs Svelte</h1>
+	</section>
+	<section class="slide hero" >
+		<h1 class="text" style="font-size: 80px;">Выводы</h1>
+
+		<ul style="text-align: left; margin: 40px auto; width: 800px; font-size: 40px; line-height: 60px">
+			<li>Самая новая штука от самой крутой компании сейчас</li>
+			<li>Ваш код станет быстрее</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<img src="pictures/hipster.jpg"  class="cover" />
+	</section>
+	<section class="slide">
+		<img src="pictures/smoothie.jpg" class="cover" />
+	</section>
+	<section class="slide">
+		<img src="pictures/vape.jpg" class="cover" />
+	</section>
+	<section class="slide hero" >
+		<h1 class="text" style="font-size: 80px;">Правильные выводы</h1>
+
+		<ul style="text-align: left; margin: 40px auto; width: 800px; font-size: 40px; line-height: 60px">
+			<li>Маркетинговый булшит!</li>
+			<li>Мнимая проблема</li>
+			<li>Не стабильный</li>
+		</ul>
+	</section>
+	<section class="slide hero" >
+		<h1 class="text" style="font-size: 80px;">Глубокие выводы</h1>
+
+		<ul style="text-align: left; margin: 40px auto; width: 800px; font-size: 40px; line-height: 60px">
+			<li>Не выбирайте инструменты ради инструментов</li>
+			<li>Хайп уляжется - легаси остенется</li>
+		</ul>
+	</section>
+
+	<section class="slide" style="background: #323330;" id="see-more">
+		<h2 class="shout">
+			Спасибо!
+		</h2>
+		<style>
+			#see-more h2 {
+				font-size:100px
+				}
+			#see-more img {
+				width:0.72em;
+				height:0.72em;
+				}
+		</style>
+	</section>
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="node_modules/shower-core/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
