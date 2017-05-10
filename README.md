@@ -1,5 +1,5 @@
-# Repack Overview
+# Prepack Overview
 
-Рассказ о Repack и хайпе. Что такое Repack и о чем должен помнить разработчик
+Рассказ о Prepack и хайпе. Что такое Prepack и о чем должен помнить разработчик
 
 [repack](https://github.com/facebook/prepack)
